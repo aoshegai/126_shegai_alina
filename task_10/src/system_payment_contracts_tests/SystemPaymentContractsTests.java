@@ -9,4 +9,10 @@ public class SystemPaymentContractsTests extends Assert {
         SystemContracts paymentContractsList = SystemContracts.create();
         assertEquals(0, paymentContractsList.getContractsCount());
     }
+    @Test
+    public void addContract_AddContractWithNumberAndDate_ContractsCountEqualsOne() {
+        SystemContracts paymentContractsList = SystemContracts.create();
+        paymentContractsList.addContract("number", "YYYYMMDD");
+        assertEquals(1, paymentContractsList.getContractsCount());
+    }
 }
