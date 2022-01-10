@@ -19,6 +19,8 @@ public class SystemContracts {
             throw new IllegalArgumentException(error.toString());
         if((!data.containsKey(number)) && (date.length() == 8)) {
             data.put(number, new Contract(date));
+        } else {
+            System.out.println("договор с уже существующим номером");
         }
     }
 
