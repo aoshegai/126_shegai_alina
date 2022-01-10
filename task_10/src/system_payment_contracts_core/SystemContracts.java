@@ -9,6 +9,8 @@ public class SystemContracts {
     public void addContract(String number, String date) {
         if(number == null)
             throw new IllegalArgumentException("Number can not be null");
+        if(date == null)
+            throw new IllegalArgumentException("Date can not be null");
         contractsCount++;
     }
 
