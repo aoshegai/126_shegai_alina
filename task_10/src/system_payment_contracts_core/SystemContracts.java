@@ -1,9 +1,7 @@
 package system_payment_contracts_core;
 
 import javax.xml.crypto.Data;
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.Map;
+import java.util.*;
 
 public class SystemContracts {
     private HashMap<String, Contract> data;
@@ -52,5 +50,14 @@ public class SystemContracts {
             contractsAndPayments.put(entry.getKey(), entry.getValue().getPaymentsSum());
         }
         return contractsAndPayments;
+    }
+
+    public List<Integer> getAllPayments() {
+        List<Integer> payments = new ArrayList();
+        for(Contract document: data.values()){
+            for(PaymentDocument paymentDocument : document.getPayments().values())
+                payments.add(paymentDocument.getSum());
+        }
+        return payments;
     }
 }
