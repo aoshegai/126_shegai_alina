@@ -35,4 +35,11 @@ public class SystemPaymentContractsTests extends Assert {
                 exc.getMessage().toLowerCase().contains("date can not be null"));
 
     }
+    @Test
+    public void registerPaymentDocument_registerPayDocumentWithData_PaymentDocumentCountEqualsOne(){
+        SystemContracts paymentContractsList = SystemContracts.create();
+        paymentContractsList.addContract("number","date");
+        paymentContractsList.registerPaymentDocument("sum", "documentNumber", DocumentType.PaymentOrder,"number", "YYYYMMDD");
+        assertEquals(1,paymentContractsList.getContracts().get("number").getContractsCount());
+    }
 }
