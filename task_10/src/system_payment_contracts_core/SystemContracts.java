@@ -33,6 +33,12 @@ public class SystemContracts {
     }
 
     public void registerPaymentDocument(int sum, int documentNumber, DocumentType type, String number, String date) {
+        StringBuilder error = new StringBuilder();
+        if(sum<0){
+            error.append("sum is positive\n");
+        }
+        if(!error.isEmpty())
+            throw new IllegalArgumentException(error.toString());
         data.get(number).registerPaymentDocument(sum,documentNumber,type,date);
     }
 
