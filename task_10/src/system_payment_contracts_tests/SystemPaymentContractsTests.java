@@ -68,4 +68,12 @@ public class SystemPaymentContractsTests extends Assert {
 
         assertArrayEquals(payments.toArray(), paymentContractsList.getContracts().get("number").getPaymentsList().toArray());
     }
+    @Test
+    public void getSum_CalculatePaymentsSumByNumberOfContract_SumEqualsThreeHundred(){
+        SystemContracts paymentContractsList = SystemContracts.create();
+        paymentContractsList.addContract("number","YYYYMMDD");
+        paymentContractsList.registerPaymentDocument(100, 1, DocumentType.PaymentOrder,"number", "YYYYMMDD");
+        paymentContractsList.registerPaymentDocument(200, 2, DocumentType.BankOrder,"number", "YYYYMMDD");
+        assertEquals(300, paymentContractsList.getContracts().get("number").getPaymentsSum());
+    }
 }
