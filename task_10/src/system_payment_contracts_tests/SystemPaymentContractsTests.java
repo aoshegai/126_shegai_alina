@@ -4,7 +4,9 @@ import org.junit.*;
 import system_payment_contracts_core.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SystemPaymentContractsTests extends Assert {
     @Test
@@ -85,5 +87,30 @@ public class SystemPaymentContractsTests extends Assert {
         paymentContractsList.deletePayment( 1, "number", "YYYYMMDD");
         paymentContractsList.deletePayment( 2, "number", "YYYYMMDD");
         assertEquals(0, paymentContractsList.getContracts().get("number").getDocumentsCount());
+    }
+    @Test
+    public void getLists_GetContractsListAndPaymentsList_ListsEqualMap(){
+        SystemContracts paymentContractsList = SystemContracts.create();
+        paymentContractsList.addContract("number","YYYYMMDD");
+        paymentContractsList.registerPaymentDocument(100, 1, DocumentType.PaymentOrder,"number", "YYYYMMDD");
+        paymentContractsList.registerPaymentDocument(200, 2, DocumentType.BankOrder,"number", "YYYYMMDD");
+        paymentContractsList.addContract("number1","YYYYMMDD");
+        paymentContractsList.registerPaymentDocument(300, 1, DocumentType.PaymentOrder,"number1", "YYYYMMDD");
+        paymentContractsList.registerPaymentDocument(400, 2, DocumentType.BankOrder,"number1", "YYYYMMDD");
+        List<String> contractsList = new ArrayList();
+        List<Integer> paymentsList = new ArrayList();
+        contractsList.add("number");
+        paymentsList.add(300);
+        contractsList.add("number1");
+        paymentsList.add(700);
+        HashMap<String,Integer> contractsWithPayments = paymentContractsList.getAllContractsAndPayments();
+        List<String> contract = new ArrayList();
+        List<Integer> payment = new ArrayList();
+        for (Map.Entry<String, Integer> entry: contractsWithPayments.entrySet()){
+            contract.add(entry.getKey());
+            payment.add(entry.getValue());
+        }
+        assertArrayEquals(contractsList.toArray(), contract.toArray());
+        assertArrayEquals(paymentsList.toArray(), payment.toArray());
     }
 }
