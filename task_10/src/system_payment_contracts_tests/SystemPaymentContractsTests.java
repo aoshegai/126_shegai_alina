@@ -113,4 +113,20 @@ public class SystemPaymentContractsTests extends Assert {
         assertArrayEquals(contractsList.toArray(), contract.toArray());
         assertArrayEquals(paymentsList.toArray(), payment.toArray());
     }
+    @Test
+    public void getList_getAllPaymentsList_GotAllLists(){
+        SystemContracts paymentContractsList = SystemContracts.create();
+        paymentContractsList.addContract("number","YYYYMMDD");
+        paymentContractsList.registerPaymentDocument(100, 1, DocumentType.PaymentOrder,"number", "YYYYMMDD");
+        paymentContractsList.registerPaymentDocument(200, 2, DocumentType.BankOrder,"number", "YYYYMMDD");
+        paymentContractsList.addContract("number1","YYYYMMDD");
+        paymentContractsList.registerPaymentDocument(300, 1, DocumentType.PaymentOrder,"number1", "YYYYMMDD");
+        paymentContractsList.registerPaymentDocument(400, 2, DocumentType.BankOrder,"number1", "YYYYMMDD");
+        List<Integer> paymentDocuments = new ArrayList();
+        paymentDocuments.add(100);
+        paymentDocuments.add(200);
+        paymentDocuments.add(300);
+        paymentDocuments.add(400);
+        assertArrayEquals(paymentDocuments.toArray(),paymentContractsList.getAllPayments().toArray());
+    }
 }
