@@ -45,4 +45,12 @@ public class SystemContracts {
     public void deletePayment(int documentNumber, String number, String date) {
         data.get(number).getPayments().remove(documentNumber);
     }
+
+    public HashMap<String, Integer> getAllContractsAndPayments() {
+        HashMap<String, Integer> contractsAndPayments = new HashMap();
+        for (Map.Entry<String, Contract> entry: data.entrySet()){
+            contractsAndPayments.put(entry.getKey(), entry.getValue().getPaymentsSum());
+        }
+        return contractsAndPayments;
+    }
 }
