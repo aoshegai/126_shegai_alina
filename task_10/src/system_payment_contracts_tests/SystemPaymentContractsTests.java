@@ -76,4 +76,14 @@ public class SystemPaymentContractsTests extends Assert {
         paymentContractsList.registerPaymentDocument(200, 2, DocumentType.BankOrder,"number", "YYYYMMDD");
         assertEquals(300, paymentContractsList.getContracts().get("number").getPaymentsSum());
     }
+    @Test
+    public void deletePaymentDoc_DeletePaymentDocWithDocNumberNumberAndDate_PaymentDocCountEqualsZero(){
+        SystemContracts paymentContractsList = SystemContracts.create();
+        paymentContractsList.addContract("number","YYYYMMDD");
+        paymentContractsList.registerPaymentDocument(100, 1, DocumentType.PaymentOrder,"number", "YYYYMMDD");
+        paymentContractsList.registerPaymentDocument(200, 2, DocumentType.BankOrder,"number", "YYYYMMDD");
+        paymentContractsList.deletePayment( 1, "number", "YYYYMMDD");
+        paymentContractsList.deletePayment( 2, "number", "YYYYMMDD");
+        assertEquals(0, paymentContractsList.getContracts().get("number").getDocumentsCount());
+    }
 }
