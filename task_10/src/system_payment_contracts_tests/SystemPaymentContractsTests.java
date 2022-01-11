@@ -3,6 +3,9 @@ package system_payment_contracts_tests;
 import org.junit.*;
 import system_payment_contracts_core.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SystemPaymentContractsTests extends Assert {
     @Test
     public void create_CreatePaymentContracts_ContractsCountEqualsZero() {
@@ -49,5 +52,20 @@ public class SystemPaymentContractsTests extends Assert {
         paymentContractsList.registerPaymentDocument(100, 1, DocumentType.PaymentOrder,"number", "YYYYMMDD");
         paymentContractsList.registerPaymentDocument(200, 2, DocumentType.BankOrder,"number", "YYYYMMDD");
         assertEquals(2,paymentContractsList.getContracts().get("number").getDocumentsCount());
+    }
+    @Test
+    public void getPayments_getPaymentsListOfContract_gotPaymentsList() {
+        SystemContracts paymentContractsList = SystemContracts.create();
+        paymentContractsList.addContract("number","YYYYMMDD");
+        paymentContractsList.registerPaymentDocument(100, 1, DocumentType.PaymentOrder,"number", "YYYYMMDD");
+        paymentContractsList.registerPaymentDocument(200, 2, DocumentType.BankOrder,"number", "YYYYMMDD");
+        paymentContractsList.addContract("number1","YYYYMMDD");
+        paymentContractsList.registerPaymentDocument(300, 1, DocumentType.PaymentOrder,"number1", "YYYYMMDD");
+        paymentContractsList.registerPaymentDocument(400, 2, DocumentType.BankOrder,"number1", "YYYYMMDD");
+        ArrayList<Integer> payments = new ArrayList<>();
+        payments.add(100);
+        payments.add(200);
+
+        assertArrayEquals(payments.toArray(), paymentContractsList.getContracts().get("number").getPaymentsList().toArray());
     }
 }
