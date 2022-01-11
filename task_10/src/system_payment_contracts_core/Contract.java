@@ -37,4 +37,8 @@ public class Contract {
         }
         return sum;
     }
+
+    public HashMap<Integer, PaymentDocument> getPayments() {
+        return paymentDocuments;
+    }
 }

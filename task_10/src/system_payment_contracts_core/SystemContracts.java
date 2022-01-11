@@ -41,4 +41,8 @@ public class SystemContracts {
     public HashMap<String, Contract> getContracts() {
         return data;
     }
+
+    public void deletePayment(int documentNumber, String number, String date) {
+        data.get(number).getPayments().remove(documentNumber);
+    }
 }
