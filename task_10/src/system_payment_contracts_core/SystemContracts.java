@@ -1,7 +1,9 @@
 package system_payment_contracts_core;
 
+import javax.xml.crypto.Data;
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class SystemContracts {
     private HashMap<String, Contract> data;
@@ -17,7 +19,7 @@ public class SystemContracts {
             error.append("Date can not be null\n");
         if(!error.isEmpty())
             throw new IllegalArgumentException(error.toString());
-        if((!data.containsKey(number)) && (date.length() == 8)) {
+        if (!data.containsKey(number)) {
             data.put(number, new Contract(date));
         } else {
             System.out.println("договор с уже существующим номером");
@@ -30,5 +32,13 @@ public class SystemContracts {
 
     public int getContractsCount() {
         return data.size();
+    }
+
+    public void registerPaymentDocument(int sum, int documentNumber, DocumentType type, String number, String date) {
+        data.get(number).registerPaymentDocument(sum,documentNumber,type,date);
+    }
+
+    public HashMap<String, Contract> getContracts() {
+        return data;
     }
 }

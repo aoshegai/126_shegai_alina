@@ -38,8 +38,8 @@ public class SystemPaymentContractsTests extends Assert {
     @Test
     public void registerPaymentDocument_registerPayDocumentWithData_PaymentDocumentCountEqualsOne(){
         SystemContracts paymentContractsList = SystemContracts.create();
-        paymentContractsList.addContract("number","date");
-        paymentContractsList.registerPaymentDocument("sum", "documentNumber", DocumentType.PaymentOrder,"number", "YYYYMMDD");
-        assertEquals(1,paymentContractsList.getContracts().get("number").getContractsCount());
+        paymentContractsList.addContract("number","YYYYMMDD");
+        paymentContractsList.registerPaymentDocument(100, 1, DocumentType.PaymentOrder,"number", "YYYYMMDD");
+        assertEquals(1,paymentContractsList.getContracts().get("number").getDocumentsCount());
     }
 }
