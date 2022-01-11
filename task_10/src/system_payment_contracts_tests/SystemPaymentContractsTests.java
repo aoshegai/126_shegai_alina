@@ -56,6 +56,13 @@ public class SystemPaymentContractsTests extends Assert {
         assertEquals(2,paymentContractsList.getContracts().get("number").getDocumentsCount());
     }
     @Test
+    public void registerPaymentDocument_registerPaymentDocumentWithNegativeSum_ThrowsException() {
+        SystemContracts paymentContractsList = SystemContracts.create();
+        paymentContractsList.addContract("number","YYYYMMDD");
+        var exc = assertThrows(IllegalArgumentException.class, () -> paymentContractsList.registerPaymentDocument(-100, 1, DocumentType.PaymentOrder, "number", "YYYYMMDD"));
+        assertTrue(exc.getMessage().toLowerCase().contains("sum is positive"));
+    }
+    @Test
     public void getPayments_getPaymentsListOfContract_gotPaymentsList() {
         SystemContracts paymentContractsList = SystemContracts.create();
         paymentContractsList.addContract("number","YYYYMMDD");
