@@ -37,6 +37,9 @@ public class SystemContracts {
         if(sum<0){
             error.append("sum is positive\n");
         }
+        if(documentNumber<0){
+            error.append("document number is positive\n");
+        }
         if(!error.isEmpty())
             throw new IllegalArgumentException(error.toString());
         data.get(number).registerPaymentDocument(sum,documentNumber,type,date);
