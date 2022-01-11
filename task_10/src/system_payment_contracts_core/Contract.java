@@ -29,4 +29,12 @@ public class Contract {
         }
         return payments;
     }
+
+    public int getPaymentsSum() {
+        int sum=0;
+        for(PaymentDocument document : paymentDocuments.values()){
+            sum += document.getSum();
+        }
+        return sum;
+    }
 }
