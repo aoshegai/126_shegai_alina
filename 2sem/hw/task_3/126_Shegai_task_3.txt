@@ -22,7 +22,4 @@ MergeSort.java|32|to[resPos] = from[firstFocus++]; -> to[resPos++] = from[firstF
 #-----------------------
 QuickSort.java|12|int base = split(data, e, b); ->  int base = split(data, b, e);|test_QuickSort_baseAndSplitSwap
 QuickSort.java|24|swap(data, left, baseElem); ->  swap(data, left - 1, baseElem);|test_QuickSort_baseAndSplitSwap
-QuickSort.java|13|qSortRec(data, b, base - 2); -> qSortRec(data, b, base - 1);|test_QuickSort_checkErrorsWithoutChange
-QuickSort.java|14|qSortRec(data, base + 2, e) -> qSortRec(data, base + 1, e)|test_QuickSort_checkErrorsWithoutChange
-QuickSort.java|25|baseElem = left; -> baseElem = left - 1;|test_QuickSort_checkErrorsWithoutChange
-QuickSort.java|29|swap(data, left + 1, right); -> swap(data, left, right);|test_QuickSort_checkErrorsWithoutChange
+
