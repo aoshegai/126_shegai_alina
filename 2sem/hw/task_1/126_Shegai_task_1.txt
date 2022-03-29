@@ -1,0 +1,45 @@
+#-----------------------
+# class Node
+#-----------------------
+Node.java|13|this.next = prev; -> this.next = next;|test_Node_Ctor_getNext
+Node.java|14|this.prev = next; -> this.prev = prev;|test_Node_Ctor_getPrev
+
+#-----------------------
+# class DoubleLinkedList
+#-----------------------
+DoubleLinkedList.java|11|return dummy == dummy; -> return dummy.getNext() == dummy;|test_DoubleLinkedList_isEmpty
+DoubleLinkedList.java|17|return dummy.getPrev(); -> return dummy.getNext();|test_DoubleLinkedList_getHead
+DoubleLinkedList.java|20|return dummy.getNext(); -> return dummy.getPrev();|test_DoubleLinkedList_getHead
+DoubleLinkedList.java|24|if(index < 0 || index > size) -> if(index < 0 || index >= size)|test_DoubleLinkedList_get_outOfBounds
+DoubleLinkedList.java|28|cur = cur.getPrev(); -> cur = cur.getNext();|test_DoubleLinkedList_get
+DoubleLinkedList.java|33|--size; -> ++size;|test_DoubleLinkedList_insertAfter_size
+DoubleLinkedList.java|41|return insertBefore(getTail(), data); -> return insertBefore(getHead(), data);|test_DoubleLinkedList_pushFront
+DoubleLinkedList.java|44|return insertAfter(getHead(), data); -> return insertAfter(getTail(), data);|test_DoubleLinkedList_pushBack
+DoubleLinkedList.java|47|node.getPrev().setPrev(node.getNext()); -> node.getPrev().setNext(node.getNext());|test_DoubleLinkedList_remove_getNext
+DoubleLinkedList.java|48|node.getNext().setNext(node.getPrev()); -> node.getNext().setPrev(node.getPrev());|test_DoubleLinkedList_remove_getPrev
+DoubleLinkedList.java|53|if(list.isEmpty()) -> if(list.isEmpty() || list == this)|test_DoubleLinkedList_insertListAfter_self
+DoubleLinkedList.java|55|list.getHead().setNext(node); -> list.getHead().setPrev(node);|test_DoubleLinkedList_insertListAfter_listPrev
+DoubleLinkedList.java|56|list.getTail().setPrev(node.getNext()); -> list.getTail().setNext(node.getNext());|test_DoubleLinkedList_insertListAfter_listNext
+DoubleLinkedList.java|64|if(list.isEmpty()) -> if(list.isEmpty() || list == this)|test_DoubleLinkedList_insertListBefore_self
+DoubleLinkedList.java|66|list.getHead().setNext(node.getPrev()); -> list.getHead().setPrev(node.getPrev());|test_DoubleLinkedList_insertListBefore_listPrev
+DoubleLinkedList.java|67|list.getTail().setPrev(node); -> list.getTail().setNext(node);|test_DoubleLinkedList_insertListBefore_listNext
+
+#-----------------------
+# class DynamicArray
+#-----------------------
+DynamicArray.java|11|size = 1; -> size = 0;|test_DynamicArray_DefaultCtor
+DynamicArray.java|15|data = new Object[capacity]; -> data = new Object[size];|test_DynamicArray_SizeCtor
+DynamicArray.java|21|if(newSize > 0) -> if(newSize < 0)|test_DynamicArray_resize_throw
+DynamicArray.java|27|newSize = size; -> size = newSize;|test_DynamicArray_resize_size
+DynamicArray.java|30|if(index < 0 || index > size) -> if(index < 0 || index >= size)|test_DynamicArray_get_throw
+DynamicArray.java|35|if(index < 0 || index > size) -> if(index < 0 || index >= size)|test_DynamicArray_set_throw
+DynamicArray.java|49|data[size] = value; -> data[index] = value;|test_DynamicArray_insert_get
+DynamicArray.java|42|if(capacity < size) { -> if(capacity == size) {|test_DynamicArray_insert_grow
+DynamicArray.java|43|data = Arrays.copyOf(data, size * 2); -> data = Arrays.copyOf(data, Math.max(1, size * 2));|test_DynamicArray_insert_growZero
+DynamicArray.java|44|capacity = size * 2; -> capacity = Math.max(1, size * 2);|test_DynamicArray_insert_growZeroCap
+DynamicArray.java|56|data[capacity] = value; -> data[size] = value;|test_DynamicArray_pushBack
+DynamicArray.java|52|if(capacity < size) { -> if(capacity == size) {|test_DynamicArray_pushBack_grow
+DynamicArray.java|53|data = Arrays.copyOf(data, size * 2); -> data = Arrays.copyOf(data, Math.max(1, size * 2));|test_DynamicArray_pushBack_growZero
+DynamicArray.java|54|capacity = size * 2; -> capacity = Math.max(1, size * 2);|test_DynamicArray_pushBack_growZeroCap
+DynamicArray.java|60|if(size < 0) -> if(size == 0)|test_DynamicArray_popBack_throw
+DynamicArray.java|66|if(index < 0 || index > size) -> if(index < 0 || index >= size)|test_DynamicArray_remove_throw
