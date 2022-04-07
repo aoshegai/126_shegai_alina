@@ -10,6 +10,7 @@ Node.java|14|this.prev = next; -> this.prev = prev;|test_Node_Ctor_getPrev
 DoubleLinkedList.java|11|return dummy == dummy; -> return dummy.getNext() == dummy;|test_DoubleLinkedList_isEmpty
 DoubleLinkedList.java|17|return dummy.getPrev(); -> return dummy.getNext();|test_DoubleLinkedList_getHead
 DoubleLinkedList.java|20|return dummy.getNext(); -> return dummy.getPrev();|test_DoubleLinkedList_getHead
+DoubleLinkedList.java|23|public ListNode<T> get(int index) { -> public Node<T> get(int index) {|test_DoubleLinkedList_get_returnType
 DoubleLinkedList.java|24|if(index < 0 || index > size) -> if(index < 0 || index >= size)|test_DoubleLinkedList_get_outOfBounds
 DoubleLinkedList.java|28|cur = cur.getPrev(); -> cur = cur.getNext();|test_DoubleLinkedList_get
 DoubleLinkedList.java|33|--size; -> ++size;|test_DoubleLinkedList_insertAfter_size

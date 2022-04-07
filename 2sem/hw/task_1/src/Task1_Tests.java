@@ -2,7 +2,6 @@ import org.junit.*;
 
 public class Task1_Tests extends Assert {
 
-
     // class Node
 
     @Test
@@ -45,6 +44,13 @@ public class Task1_Tests extends Assert {
         list.insertBefore(list.getTail(), 0);
         var node = list.insertAfter(list.getTail(), 0);
         assertEquals(node, list.getTail());
+    }
+
+    @Test
+    public void test_DoubleLinkedList_get_returnType() {
+        var list = new DoubleLinkedList<>();
+        list.insertAfter(list.getHead(), 0);
+        assertEquals(0, list.get(0).getData());
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
