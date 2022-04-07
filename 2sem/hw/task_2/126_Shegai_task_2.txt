@@ -14,9 +14,9 @@ InsertionSort.java|8|++cur; -> --cur;|test_InsertionSort_comparatorAndCur
 #-----------------------
 # class SelectionSort
 #-----------------------
-InsertionSort.java|20|T tmp = data[data.length - sortedSize]; -> T tmp = data[data.length  - 1 - sortedSize];|test_SelectionSort_dataLength
-InsertionSort.java|11|data[data.length - sortedSize] = data[maxInd]; -> data[data.length - 1 -sortedSize] = data[maxInd];|test_SelectionSort_dataLength
-InsertionSort.java|4|for(int sortedSize = 1; sortedSize < data.length - 1; ++sortedSize) { -> for(int sortedSize = 0; sortedSize < data.length - 1; ++sortedSize) {|test_SelectionSort_sortedSizeAndMaxInd
-InsertionSort.java|5|int maxInd = 1; -> int maxInd = 0;|test_SelectionSort_sortedSizeAndMaxInd
-InsertionSort.java|8|maxInd = sortedSize; -> maxInd = i;|test_SelectionSort_sortedSizeAndMaxInd
+SelectionSort.java|10|T tmp = data[data.length - sortedSize]; -> T tmp = data[data.length  - 1 - sortedSize];|test_SelectionSort_dataLength
+SelectionSort.java|11|data[data.length - sortedSize] = data[maxInd]; -> data[data.length - 1 -sortedSize] = data[maxInd];|test_SelectionSort_dataLength
+SelectionSort.java|4|for(int sortedSize = 1; sortedSize < data.length - 1; ++sortedSize) { -> for(int sortedSize = 0; sortedSize < data.length - 1; ++sortedSize) {|test_SelectionSort_sortedSizeAndMaxInd
+SelectionSort.java|5|int maxInd = 1; -> int maxInd = 0;|test_SelectionSort_sortedSizeAndMaxInd
+SelectionSort.java|8|maxInd = sortedSize; -> maxInd = i;|test_SelectionSort_sortedSizeAndMaxInd
 

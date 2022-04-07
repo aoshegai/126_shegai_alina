@@ -97,17 +97,17 @@ public class Task3_Tests extends Assert {
 
     @Test
     public void  test_QuickSort_baseAndSplitSwap(){
-        Integer[] data = {2, 1};
+        Integer[] data = {2,1};
         QuickSort<Integer> qs = new QuickSort();
         qs.sort(data, new TestComparator());
-        assertArrayEquals(new Integer[] {1, 2}, data);
+        assertArrayEquals(new Integer[] {1,2}, data);
     }
 
     @Test
-    public void  test_QuickSort_checkErrorsWithoutChange(){
-        Integer[] data = {9,8,9,4,5,1,2,1,5,3};
+    public void  test_QuickSort_leftErrors(){
+        Integer[] data = {1,3,5,9,7,1,3,7,5};
         QuickSort<Integer> qs = new QuickSort();
         qs.sort(data, new TestComparator());
-        assertArrayEquals(new Integer[] {1,1,2,3,4,5,5,8,9,9}, data);
+        assertArrayEquals(new Integer[] {1,1,3,3,5,5,7,7,9}, data);
     }
 }
