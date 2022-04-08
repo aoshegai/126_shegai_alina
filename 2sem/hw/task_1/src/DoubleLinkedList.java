@@ -20,7 +20,7 @@ public class DoubleLinkedList<T> {
         return dummy.getPrev();
     }
 
-    public Node<T> get(int index) {
+    public ListNode<T> get(int index) {
         if(index < 0 || index >= size)
             throw new IndexOutOfBoundsException("index out of bounds");
         ListNode<T> cur = getHead();
