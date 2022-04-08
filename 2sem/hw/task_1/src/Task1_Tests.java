@@ -46,13 +46,6 @@ public class Task1_Tests extends Assert {
         assertEquals(node, list.getTail());
     }
 
-    @Test
-    public void test_DoubleLinkedList_get_returnType() {
-        var list = new DoubleLinkedList<>();
-        list.insertAfter(list.getHead(), 0);
-        assertEquals(0, list.get(0).getData());
-    }
-
     @Test(expected = IndexOutOfBoundsException.class)
     public void test_DoubleLinkedList_get_outOfBounds() {
         var list = new DoubleLinkedList<>();

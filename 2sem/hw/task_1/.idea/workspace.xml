@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="157382bb-7c4c-442d-b812-fe8421c5e72e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/126_Shegai_task_1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/126_Shegai_task_1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/task_1/Task1_Tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/task_1/Task1_Tests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DynamicArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DynamicArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Task1_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task1_Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +34,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../task_2" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
