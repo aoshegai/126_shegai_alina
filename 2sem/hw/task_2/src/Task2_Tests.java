@@ -41,17 +41,25 @@ public class Task2_Tests extends Assert {
 
     @Test
     public void  test_SelectionSort_dataLength(){
-        Integer[] data = {1, 2};
+        Integer[] data = {1, 1, 2};
         SelectionSort<Integer> ss = new SelectionSort();
         ss.sort(data, new TestComparator());
-        assertArrayEquals(new Integer[] {1, 2}, data);
+        assertArrayEquals(new Integer[] {1, 1, 2}, data);
     }
 
     @Test
-    public void  test_SelectionSort_sortedSizeAndMaxInd(){
-        Integer[] data = {2, 1, 3};
+    public void  test_SelectionSort_sortedSize(){
+        Integer[] data = {1,3,2};
         SelectionSort<Integer> ss = new SelectionSort();
         ss.sort(data, new TestComparator());
-        assertArrayEquals(new Integer[] {1, 2, 3}, data);
+        assertArrayEquals(new Integer[] {1,2,3}, data);
+    }
+
+    @Test
+    public void  test_SelectionSort_maxInd(){
+        Integer[] data = {2,1,3};
+        SelectionSort<Integer> ss = new SelectionSort();
+        ss.sort(data, new TestComparator());
+        assertArrayEquals(new Integer[] {1,2,3}, data);
     }
 }
