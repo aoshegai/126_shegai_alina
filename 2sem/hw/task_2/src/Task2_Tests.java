@@ -30,13 +30,20 @@ public class Task2_Tests extends Assert {
     // InsertionSort
 
     @Test
-    public void  test_InsertionSort_comparatorAndCur(){
+    public void  test_InsertionSort_comparator(){
         Integer[] data = {1, 2};
         InsertionSort<Integer> is = new InsertionSort();
         is.sort(data, new TestComparator());
         assertArrayEquals(new Integer[] {1, 2}, data);
     }
 
+    @Test
+         public void  test_InsertionSort_cur(){
+        Integer[] data = {2,1};
+        InsertionSort<Integer> is = new InsertionSort();
+        is.sort(data, new TestComparator());
+        assertArrayEquals(new Integer[] {1,2}, data);
+    }
     // SelectionSort
 
     @Test
